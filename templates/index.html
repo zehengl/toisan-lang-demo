@@ -31,7 +31,7 @@
         </p>
         <hr class="my-4" />
         <p>
-          Check out the toisan-lang at
+          Check out toisan-lang at
           <a href="https://github.com/zehengl/toisan-lang">https://github.com/zehengl/toisan-lang</a>
         </p>
       </div>
@@ -40,7 +40,20 @@
       {% include 'program_form.html' %}
     </div>
     <div class="container" style="padding: 1rem" >
-      <textarea disabled class="form-control" rows="{{ num_lines }}">{{ python_code }}</textarea>
+      {% if num_lines%}
+        <div class="alert alert-success" role="alert">
+          [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]
+          <br>
+          Python 代码如下
+        </div>
+        <textarea disabled style="resize: none" class="form-control" rows="{{ num_lines }}">{{ python_code }}</textarea>
+      {% else %}
+        <div class="alert alert-danger" role="alert">
+          (┛◉Д◉)┛彡┻━┻
+          <br>
+          出错啦！
+        </div>
+      {% endif %}
     </div>
   </div>
   <footer class="footer" style="padding: 1rem">
