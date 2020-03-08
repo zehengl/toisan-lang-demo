@@ -2,9 +2,11 @@ import os
 
 from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap
+from toisan_lang import parse
 from whitenoise import WhiteNoise
 
-from forms import SomeForm
+from forms import ProgramForm
+
 
 app = Flask(__name__)
 Bootstrap(app)
@@ -15,9 +17,14 @@ app.config["BOOTSTRAP_SERVE_LOCAL"] = True
 
 @app.route("/", methods=["get", "post"])
 def index():
-    form = SomeForm(request.form)
+    form = ProgramForm(request.form)
 
-    return render_template("index.html", form=form)
+    python_code, _ = parse(form.program.data)
+    num_lines = len(python_code.split("\n"))
+
+    return render_template(
+        "index.html", form=form, python_code=python_code, num_lines=num_lines
+    )
 
 
 if __name__ == "__main__":

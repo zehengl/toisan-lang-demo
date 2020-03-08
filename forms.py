@@ -1,9 +1,7 @@
 from flask_wtf import FlaskForm
-from wtforms import SubmitField, TextField
-from wtforms.validators import DataRequired
+from wtforms import SubmitField, TextAreaField
 
 
-class SomeForm(FlaskForm):
-    input1 = TextField("Input 1", validators=[DataRequired()])
-    input2 = TextField("Input 2", validators=[DataRequired()])
-    submit = SubmitField("Submit")
+class ProgramForm(FlaskForm):
+    program = TextAreaField("台山话program", render_kw={"rows": 10},)
+    submit = SubmitField("Transpile")

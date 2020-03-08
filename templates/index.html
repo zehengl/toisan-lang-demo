@@ -24,20 +24,23 @@
               height="64"
             />
           </span>
-          toisan-lang-demo
+          台山话编程
         </h1>
         <p class="lead">
-          A Python application to do something amazing
+          A Python application to demo toisan-lang
         </p>
         <hr class="my-4" />
         <p>
-          Check out the source code at
+          Check out the toisan-lang at
           <a href="https://github.com/zehengl/toisan-lang">https://github.com/zehengl/toisan-lang</a>
         </p>
       </div>
     </div>
     <div class="container">
-      {% include 'some_form.html' %}
+      {% include 'program_form.html' %}
+    </div>
+    <div class="container" style="padding: 1rem" >
+      <textarea disabled class="form-control" rows="{{ num_lines }}">{{ python_code }}</textarea>
     </div>
   </div>
   <footer class="footer" style="padding: 1rem">
