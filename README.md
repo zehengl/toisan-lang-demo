@@ -2,9 +2,11 @@
 
 ![coding_style](https://img.shields.io/badge/code%20style-black-000000.svg)
 
+A Python application to demo toisan-lang
+
 ## Environment
 
-- Python 3.7.4
+- Python 3.7.6
 
 ## Usage
 
