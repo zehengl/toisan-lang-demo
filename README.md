@@ -6,7 +6,7 @@ A Python application to demo toisan-lang
 
 ## Environment
 
-- Python 3.7.6
+- Python 3.9
 
 ## Usage
 
