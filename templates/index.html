@@ -1,66 +1,71 @@
 {% extends "bootstrap/base.html" %}
 
-
+<!-- head -->
 {% block head %}
-  {{ super() }}
-  <link
-    rel="shortcut icon"
-    href="{{ url_for('static', filename='favicon.png') }}"
-  />
+<!-- super() -->
+{{ super() }}
+<link
+  rel="shortcut icon"
+  href="{{ url_for('static', filename='favicon.png') }}"
+/>
 {% endblock %}
 
-
+<!-- title -->
 {% block title %} toisan-lang-demo {% endblock %}
 
+<!-- content -->
 {% block content %}
-  <div style="display: flex; min-height:100vh; flex-direction:column; flex: 1">
-    <div class="container">
-      <div class="jumbotron">
-        <h1 class="display-4">
-          <span>
-            <img
-              src="{{ url_for('static', filename='favicon.png') }}"
-              width="64"
-              height="64"
-            />
-          </span>
-          台山话编程
-        </h1>
-        <p class="lead">
-          A Python application to demo toisan-lang
-        </p>
-        <hr class="my-4" />
-        <p>
-          Check out toisan-lang at
-          <a href="https://github.com/zehengl/toisan-lang">https://github.com/zehengl/toisan-lang</a>
-        </p>
-      </div>
-    </div>
-    <div class="container">
-      {% include 'program_form.html' %}
-    </div>
-    <div class="container" style="padding: 1rem" >
-      {% if num_lines%}
-        <div class="alert alert-success" role="alert">
-          [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]
-          <br>
-          Python 代码如下
-        </div>
-        <textarea disabled style="resize: none" class="form-control" rows="{{ num_lines }}">{{ python_code }}</textarea>
-      {% else %}
-        <div class="alert alert-danger" role="alert">
-          (┛◉Д◉)┛彡┻━┻
-          <br>
-          出错啦！
-        </div>
-      {% endif %}
+<div style="display: flex; min-height: 100vh; flex-direction: column; flex: 1">
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">
+        <span>
+          <img
+            src="{{ url_for('static', filename='favicon.png') }}"
+            width="64"
+            height="64"
+          />
+        </span>
+        台山话编程
+      </h1>
+      <p class="lead">A Python application to demo toisan-lang</p>
+      <hr class="my-4" />
+      <p>
+        Check out toisan-lang at
+        <a href="https://github.com/zehengl/toisan-lang">
+          https://github.com/zehengl/toisan-lang
+        </a>
+      </p>
     </div>
   </div>
-  <footer class="footer" style="padding: 1rem">
-    <div class="container">
-      <span class="text-muted">
-        &copy; Copyright 2020 by Zeheng Li
-      </span>
+  <div class="container">{% include 'program_form.html' %}</div>
+  <div class="container" style="padding: 1rem">
+    {% if num_lines%}
+    <div class="alert alert-success" role="alert">
+      [̲̅$̲̅(̲̅ ͡° ͜ʖ ͡°̲̅)̲̅$̲̅]
+      <br />
+      Python 代码如下
     </div>
-  </footer>
+    <textarea
+      disabled
+      style="resize: none"
+      class="form-control"
+      rows="{{ num_lines }}"
+    >
+{{ python_code }}</textarea
+    >
+    {% else %}
+    <div class="alert alert-danger" role="alert">
+      (┛◉Д◉)┛彡┻━┻
+      <br />
+      出错啦！
+    </div>
+    {% endif %}
+  </div>
+</div>
+<footer class="footer" style="padding: 1rem">
+  <div class="container">
+    <span class="text-muted"> &copy; Copyright 2020 by Zeheng Li </span>
+  </div>
+</footer>
 {% endblock %}
